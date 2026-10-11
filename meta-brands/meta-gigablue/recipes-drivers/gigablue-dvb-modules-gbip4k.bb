@@ -1,8 +1,8 @@
 KV = "4.4.35"
-SRCDATE = "20200612"
+SRCDATE = "20210312"
 
 require gigablue-dvb-modules-hisi.inc
 
-SRC_URI[md5sum] = "fb031239a87250ea5f85dd39c1bba551"
-SRC_URI[sha256sum] = "af6a375c63a43eeadfae337fe7d0e6f113c611da60e5b630d4bdfdea2d750136"
+SRC_URI[md5sum] = "edb5af3cdf9914d649084b52cb80c824"
+SRC_URI[sha256sum] = "eb80c44990f191faa5a897a1590f1b0603431af4f6fcf1091b6a8576b87b3148"
 

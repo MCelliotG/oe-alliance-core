@@ -7,7 +7,7 @@ LICENSE = "proprietary"
 require conf/license/license-gplv2.inc
 
 PV = "${IMAGE_VERSION}"
-PR = "${BUILD_VERSION}"
+PR = "${BUILD_VERSION}-${DEVELOPER_BUILD_VERSION}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 URL = "http://www.world-of-satellite.com"
@@ -26,6 +26,10 @@ do_install() {
     echo "Type = ${DISTRO_TYPE}" >> ${D}/etc/image-version
     echo "Machine = ${MACHINEBUILD}" >> ${D}/etc/image-version
     echo "URL = ${URL}" >> ${D}/etc/image-version
+    echo "distro=${DISTRO_NAME}" >> ${D}/etc/image-version
+    echo "compile-date=${DATE}" >> ${D}/etc/image-version
+    echo "compile-datetime=${DATETIME}" >> ${D}/etc/image-version	
 }
+do_install[vardepsexclude] += "DATE DATETIME"
 
 FILES_${PN} = "/etc/image-version"

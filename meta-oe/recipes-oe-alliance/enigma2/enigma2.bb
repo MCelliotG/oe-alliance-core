@@ -30,6 +30,7 @@ RDEPENDS_${PN} = " \
     glibc-gconv-cp1250 \
     hotplug-e2-helper \
     ${PYTHON_RDEPS} \
+    ${@bb.utils.contains("DISTRO_NAME", "openvix", "image-identifier" , "", d)} \
     ${@bb.utils.contains("DISTRO_NAME", "openatv", "openatv-autorestore" , "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "hiaccel", "dinobot-libs-${MACHINE}" , "", d)} \
@@ -115,7 +116,7 @@ GST_GOOD_RDEPS = "\
 "
 
 GST_BAD_RDEPS = "\
-    gstreamer1.0-plugins-bad-dashdemux \
+    gstreamer1.0-plugins-bad-dash \
     gstreamer1.0-plugins-bad-mms \
     gstreamer1.0-plugins-bad-mpegpsdemux \
     gstreamer1.0-plugins-bad-mpegtsdemux \
@@ -189,6 +190,10 @@ PV = "${IMAGE_VERSION}+git${SRCPV}"
 PKGV = "${IMAGE_VERSION}+git${GITPKGV}"
 
 SRC_URI = "${ENIGMA2_URI}"
+
+#SRC_URI_append_spycatminiv2 = " \
+#    file://enigma2-dinobotplayer.patch \
+#    "
 
 SRC_URI_append_sh4 = " \
     ${@bb.utils.contains("DISTRO_NAME", "openspa", "file://sh4-define-DTV_ENUM_DELSYS.patch" , "", d)} \

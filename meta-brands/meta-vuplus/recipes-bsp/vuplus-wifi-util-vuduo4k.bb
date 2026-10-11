@@ -3,7 +3,7 @@ require vuplus-wifi-util.inc
 COMPATIBLE_MACHINE = "^(vuduo4k)$"
 
 PV="18.1"
-SRCDATE = "20181109"
+SRCDATE = "20210428"
 SRCDATE_PR = "r0"
 
 do_install_append() {
@@ -12,5 +12,5 @@ do_install_append() {
 	install -m 0755 ${S}/bcmwifi_drv.sh ${D}${sysconfdir}/udev/
 }
 
-SRC_URI[md5sum] = "2df0715a75c7ff0b85f13f907536bf84"
-SRC_URI[sha256sum] = "a02c58fe339e6d75d7da9ec55d99520dff4838adec0ed60225ff4a85a7e5649d"
+SRC_URI[md5sum] = "3b13453ac6fa0d0812b747836ea50b7d"
+SRC_URI[sha256sum] = "ff109e28acc4df39fcd9173d0816c899b2de6a875992d94f9097853764fd46af"

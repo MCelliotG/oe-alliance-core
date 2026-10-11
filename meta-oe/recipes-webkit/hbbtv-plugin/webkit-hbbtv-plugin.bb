@@ -44,7 +44,7 @@ RDEPENDS_${PN} = "\
     gstreamer1.0-plugins-good-wavpack \
     gstreamer1.0-plugins-bad-videoparsersbad \
     gstreamer1.0-plugins-bad-mpegtsmux \
-    gstreamer1.0-plugins-bad-dashdemux \
+    gstreamer1.0-plugins-bad-dash \
     gstreamer1.0-plugins-bad-mms \
     gstreamer1.0-plugins-bad-mpegpsdemux \
     gstreamer1.0-plugins-bad-mpegtsdemux \
@@ -66,7 +66,7 @@ PR = "r0"
 
 INSANE_SKIP_${PN} += "already-stripped arch"
 
-SRC_URI = "git://github.com/oe-alliance/enigma2-plugin-extensions-hbbtv-webkit.git;protocol=https"
+SRC_URI = "git://github.com/oe-alliance/enigma2-plugin-extensions-hbbtv-webkit.git;protocol=https;branch=dev"
 
 S = "${WORKDIR}/git"
 

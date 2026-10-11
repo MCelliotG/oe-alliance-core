@@ -9,7 +9,7 @@ require conf/license/license-gplv2.inc
 RDEPENDS_${PN} += "showiframe"
 
 PV = "${IMAGE_VERSION}"
-PR = "r1.7"
+PR = "r1.9"
 
 S = "${WORKDIR}"
 
@@ -42,21 +42,37 @@ SRC_URI_append_dags7362 = "file://splash1_power.bmp file://splash1_os1.bmp file:
 SRC_URI_append_dags73625 = "file://splash1_power.bmp file://splash1_os1.bmp file://splash1_os2.bmp file://splash2.bmp file://splash3.bmp"
 SRC_URI_append_dags7252 = "file://atv_splash.bmp"
 SRC_URI_append_dags72604 =" file://atv_splash.bmp"
+SRC_URI_append_dagsmv200 =" file://dagsmv200/radio.mvi"
 SRC_URI_append_7100s = "file://lcdsplash220.bin file://7100s/lcdwaitkey220.bin file://7100s/lcdwarning220.bin file://7100s/lcdcomplete220.bin"
 SRC_URI_append_7210s = "file://lcdsplash220.bin file://7100s/lcdwaitkey220.bin file://7100s/lcdwarning220.bin file://7100s/lcdcomplete220.bin"
 SRC_URI_append_7105s = "file://lcdsplash220.bin file://7100s/lcdwaitkey220.bin file://7100s/lcdwarning220.bin file://7100s/lcdcomplete220.bin"
 SRC_URI_append_7215s = "file://lcdsplash220.bin file://7100s/lcdwaitkey220.bin file://7100s/lcdwarning220.bin file://7100s/lcdcomplete220.bin"
 SRC_URI_append_8100s = "file://7100s/lcdwarning220.bin"
+SRC_URI_append_hzero = "file://logo.img"
+SRC_URI_append_h8 = "file://logo.img"
 SRC_URI_append_h9 = "file://logo.img"
+SRC_URI_append_h10 = "file://logo.img"
+SRC_URI_append_h11 = "file://logo.img"
+SRC_URI_append_h9se = "file://logo.img"
 SRC_URI_append_h9combo = "file://logo.img"
+SRC_URI_append_h9combose = "file://logo.img"
 SRC_URI_append_i55plus = "file://logo.img"
+SRC_URI_append_i55se = "file://logo.img"
 SRC_URI_append_hd60 = "file://logo.img"
 SRC_URI_append_hd61 = "file://logo.img"
+SRC_URI_append_hd66se = "file://logo.img"
+SRC_URI_append_pulse4k = "file://logo.img"
+SRC_URI_append_pulse4kmini = "file://logo.img"
 SRC_URI_append_cc1 = "file://logo.img"
 SRC_URI_append_sf8008 = "file://logo.img"
 SRC_URI_append_sf8008m = "file://logo.img"
+SRC_URI_append_sf8008opt = "file://logo.img"
+SRC_URI_append_sx988 = "file://logo.img"
+SRC_URI_append_sfx6008 = "file://logo.img"
 SRC_URI_append_ustym4kpro = "file://logo.img"
-SRC_URI_append_v8plus = "file://logo.img"
+SRC_URI_append_ustym4kottpremium = "file://logo.img"
+SRC_URI_append_og2ott4k = "file://logo.img"
+SRC_URI_append_multiboxse = "file://logo.img"
 SRC_URI_append_multibox = "file://logo.img"
 SRC_URI_append_gbmv200 = "file://logo.img"
 SRC_URI_append_beyonwizv2 = "file://logo.img"
@@ -140,7 +156,7 @@ inherit deploy
 do_deploy() {
     if [ "${MACHINE}" = "dags7252" ] || [ "${MACHINE}" = "dags72604" ]; then
         install -m 0644 atv_splash.bmp ${DEPLOYDIR}/${BOOTLOGO_FILENAME}
-    elif [ "${MACHINE}" = "vuduo" ] || [ "${MACHINE}" = "vuduo2" ] || [ "${MACHINE}" = "vuuno" ] || [ "${MACHINE}" = "vusolo" ] || [ "${MACHINE}" = "vusolose" ] || [ "${MACHINE}" = "vuultimo" ] || [ "${MACHINE}" = "vuzero" ] || [ "${MACHINE}" = "vusolo4k" ] || [ "${MACHINE}" = "vuuno4k" ] || [ "${MACHINE}" = "vuuno4kse" ] || [ "${MACHINE}" = "vuultimo4k" ] || [ "${MACHINE}" = "vuzero4k" ] || [ "${MACHINE}" = "vuduo4k" ] || [ "${BRAND_OEM}" = "dags" ]; then
+    elif [ "${MACHINE}" = "vusolo2" ] || [ "${MACHINE}" = "vuduo" ] || [ "${MACHINE}" = "vuduo2" ] || [ "${MACHINE}" = "vuuno" ] || [ "${MACHINE}" = "vusolo" ] || [ "${MACHINE}" = "vusolose" ] || [ "${MACHINE}" = "vuultimo" ] || [ "${MACHINE}" = "vuzero" ] || [ "${MACHINE}" = "vusolo4k" ] || [ "${MACHINE}" = "vuuno4k" ] || [ "${MACHINE}" = "vuuno4kse" ] || [ "${MACHINE}" = "vuultimo4k" ] || [ "${MACHINE}" = "vuzero4k" ] || [ "${MACHINE}" = "vuduo4k" ] || [ "${BRAND_OEM}" = "dags" ]; then
         install -m 0644 splash480.bmp ${DEPLOYDIR}/${BOOTLOGO_FILENAME}
     else
         install -m 0644 splash576.bmp ${DEPLOYDIR}/${BOOTLOGO_FILENAME}

@@ -12,9 +12,9 @@ PKGV = "1.0+git${GITPKGV}"
 SRCREV = "${AUTOREV}"
 PR = "r2"
 VER ?= ""
-HAVE_GLES ?= "virtual/libgles2"
+HAVE_GLES ?= "${@bb.utils.contains('MACHINE_FEATURES', 'noopengl', '' , 'virtual/libgles2', d)}"
 
-SRC_URI = "git://github.com/oe-alliance/e2plugins.git;protocol=git"
+SRC_URI = "git://github.com/oe-alliance/e2plugins.git;protocol=https"
 
 RDEPENDS_${PN}  = "qtwebkit ${HAVE_GLES} python-netifaces" 
 

@@ -7,7 +7,7 @@ SRCDATE = "20181224"
 
 inherit kernel machine_kernel_pr
 
-MACHINE_KERNEL_PR_append = "33"
+MACHINE_KERNEL_PR_append = "35"
 
 SRC_URI[md5sum] = "ad7eab17a5071a0d5f9ff44eb44e027d"
 SRC_URI[sha256sum] = "0654d5aa21c51eaea46f7203014afe60052ec0990a92b9e289e1ca8a2793907c"
@@ -22,7 +22,7 @@ PKG_${KERNEL_PACKAGE_NAME}-image = "kernel-image"
 RPROVIDES_${KERNEL_PACKAGE_NAME}-base = "kernel-${KERNEL_VERSION}"
 RPROVIDES_${KERNEL_PACKAGE_NAME}-image = "kernel-image-${KERNEL_VERSION}"
 
-SRC_URI += "http://source.mynonpublic.com/gigablue/mv200/gigablue-linux-${PV}-${SRCDATE}.tar.gz \
+SRC_URI += "https://source.mynonpublic.com/gigablue/mv200/gigablue-linux-${PV}-${SRCDATE}.tar.gz \
     file://defconfig \
     file://0001-remote.patch \
     file://HauppaugeWinTV-dualHD.patch \
@@ -40,6 +40,10 @@ SRC_URI += "http://source.mynonpublic.com/gigablue/mv200/gigablue-linux-${PV}-${
     file://0007-dvb-mn88472-staging.patch \
     file://mn88472_reset_stream_ID_reg_if_no_PLP_given.patch \
     file://extend_modules_space.patch \
+"
+
+SRC_URI_append_gbtrio4k = " \
+	file://emmc_ks81aa80_05s000_reboot.patch \
 "
 
 S = "${WORKDIR}/linux-${PV}"

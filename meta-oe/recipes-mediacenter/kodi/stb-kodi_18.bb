@@ -16,7 +16,6 @@ DEPENDS += " \
             rapidjson \
             crossguid \
             libdvdnav libdvdcss libdvdread \
-            ${@bb.utils.contains('PREFERRED_VERSION_ffmpeg', '3.4.2', 'ffmpeg-kodi-18', 'ffmpeg', d)} \
             git-native \
             curl-native \
             gperf-native \
@@ -35,6 +34,7 @@ DEPENDS += " \
             enca \
             expat \
             faad2 \
+            ffmpeg \
             fontconfig \
             fribidi \
             glib-2.0 \ 
@@ -78,14 +78,16 @@ DEPENDS += " \
 #SRCREV = "61d162be4091bf7154214c8422abd0fdf6cedc45" #18.4
 #SRCREV = "103415d16038a57f59842cac72d4929389f224a9" #18.5
 #SRCREV = "8e967df9218279618bcbfa8a898d8f80f7b4e449" #18.6
-SRCREV = "0442d7060875ff5da7d028dea918054b28d6c80a"
+#SRCREV = "0442d7060875ff5da7d028dea918054b28d6c80a" #18.7
+#SRCREV = "45686bddb1f308ec580f97eb4b228b8a6606b320" #18.8
+SRCREV ="0655c2c71821567e4c21c1c5a508a39ab72f0ef1"
 
 # 'patch' doesn't support binary diffs
 PATCHTOOL = "git"
 
-PR = "r14"
+PR = "r15"
 
-PV = "18.7-gitr${SRCPV}"
+PV = "18.9-gitr${SRCPV}"
 SRC_URI = "git://github.com/xbmc/xbmc.git;protocol=https;branch=Leia \
            \
            file://0001-Add-support-for-musl-triplets.patch \
@@ -114,6 +116,8 @@ SRC_URI_append_u53 = " file://eglwrapper.patch"
 SRC_URI_append_u54 = " file://eglwrapper.patch"
 SRC_URI_append_u55 = " file://eglwrapper.patch"
 SRC_URI_append_u56 = " file://eglwrapper.patch"
+SRC_URI_append_u57 = " file://eglwrapper.patch"
+SRC_URI_append_u571 = " file://eglwrapper.patch"
 SRC_URI_append_u5pvr = " file://eglwrapper.patch"
 SRC_URI_append_u532 = " file://eglwrapper.patch"
 SRC_URI_append_u533 = " file://eglwrapper.patch"
@@ -137,7 +141,7 @@ ACCEL_x86-64 = "vaapi vdpau"
 # Default to GBM everywhere, sucks to be nvidia
 WINDOWSYSTEM ?= "stb"
 
-PACKAGECONFIG ??= "${ACCEL} ${WINDOWSYSTEM} pulseaudio lcms lto \
+PACKAGECONFIG ??= "${ACCEL} ${WINDOWSYSTEM} pulseaudio lcms lto ${@bb.utils.contains("TARGET_ARCH", "arm", "gold", "", d)} \
                    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
                    ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'opengl', 'openglesv2', d)}"
 
@@ -258,13 +262,13 @@ RRECOMMENDS_${PN}_append = " libcec \
                              python-netclient \
                              python-html \
                              python-difflib \
+                             python-pycryptodome \
                              python-json \
                              python-zlib \
                              python-shell \
                              python-sqlite3 \
                              python-compression \
                              python-xmlrpc \
-                             python-pycryptodomex \
                              python-mechanize \
                              python-profile \
                              tzdata-africa \

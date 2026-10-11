@@ -3,32 +3,35 @@ SECTION = "base"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-RDEPENDS_${PN} = "libjpeg-turbo"
+RDEPENDS_${PN} = "ffmpeg libjpeg-turbo"
 
 COMPATIBLE_MACHINE = "^(u42)$"
 
-SRCDATE = "20200710"
+SRCDATE = "20210607"
 
 PV = "${SRCDATE}"
-PR = "r0"
+PR = "r1"
 
 RPROVIDES_${PN}  = "showiframe"
 RREPLACES_${PN}  = "showiframe"
 RCONFLICTS_${PN} = "showiframe"
 
-SRC_URI = "http://source.mynonpublic.com/dinobot/${MACHINE}-showiframe-${SRCDATE}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/dinobot/${MACHINE}-showiframe-${SRCDATE}.tar.gz"
 
 S = "${WORKDIR}"
 
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${S}/showiframe ${D}/${bindir}
+    if [ -e ${S}/dinobotplayer ]; then
+        install -m 0755 ${S}/dinobotplayer ${D}/${bindir}
+    fi
 }
 
 do_package_qa() {
 }
 
-FILES_${PN}  = "${bindir}/showiframe"
+FILES_${PN}  = "${bindir}/showiframe ${bindir}/dinobotplayer"
 
-SRC_URI[md5sum] = "cc412c454fca0c4316e1845ca347d616"
-SRC_URI[sha256sum] = "0e98d5ac7a5ed3afdcff8cd9bb5e2c9654ffb217debcef97554ebf8138f422ec"
+SRC_URI[md5sum] = "17f8ba5c12ea0a9b48bfa2391d5a99a4"
+SRC_URI[sha256sum] = "13bef3e35533a7781689d7568479056a51c560746dbd96538d1efdeac237ff96"

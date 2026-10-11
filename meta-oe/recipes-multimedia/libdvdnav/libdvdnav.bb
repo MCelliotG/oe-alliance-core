@@ -6,7 +6,8 @@ DEPENDS = "libdvdread"
 PV = "6.0.0"
 SRCREV = "${AUTOREV}"
 
+CFLAGS_append_sh4 += "-std=gnu11"
 
 inherit autotools pkgconfig git-project
 
-SRC_URI = "git://github.com/xbmc/libdvdnav.git"
+SRC_URI = "git://github.com/xbmc/libdvdnav.git;protocol=https"

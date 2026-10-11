@@ -9,14 +9,14 @@ DEPENDS = "freetype"
 
 inherit gitpkgv
 
-SRC_URI = "git://github.com/oe-alliance/e2plugins.git;protocol=git"
+SRC_URI = "git://github.com/oe-alliance/e2plugins.git;protocol=https"
 
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 SRCREV = "${AUTOREV}"
 VER ?= "${@bb.utils.contains('MACHINE_FEATURES', 'hisil', '-v2', '', d)}"
 
-RDEPENDS_${PN}  = "qtwebkit virtual/libgles2"
+RDEPENDS_${PN}  = "qtwebkit ${@bb.utils.contains('MACHINE_FEATURES', 'noopengl', '' , 'virtual/libgles2', d)}"
 
 S = "${WORKDIR}/git/qthbbtv${VER}"
 

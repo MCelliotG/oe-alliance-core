@@ -1,7 +1,7 @@
 PACKAGECONFIG_GL_pn-qtbase = " "
 PACKAGECONFIG_append_pn-qtbase += " gles2 linuxfb"
 
-MACHINE_FEATURES += "qthbbtv qtstalker"
+MACHINE_FEATURES += "qthbbtv qtstalker hisichromium"
 
 PREFERRED_PROVIDER_virtual/egl ?= "maxytec-mali-${HICHIPSET}"
 PREFERRED_PROVIDER_virtual/libgles1 ?= "maxytec-mali-${HICHIPSET}"
@@ -15,7 +15,7 @@ PREFERRED_PROVIDER_virtual/blindscan-dvbc = "maxytec-dvb-modules-${MACHINE}"
 PREFERRED_PROVIDER_virtual/blindscan-dvbs = "maxytec-dvb-modules-${MACHINE}"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
-    ${@bb.utils.contains('MACHINE_FEATURES', 'hisil-${HICHIPSET}', 'maxytec-bootlogo-${MACHINE} maxytec-libs-${HICHIPSET} maxytec-param-${MACHINE} maxytec-bootargs-${MACHINE} maxytec-fastboot-${MACHINE} maxytec-recovery-${MACHINE} maxytec-tntfs-${HICHIPSET}' , '', d)} \
+    ${@bb.utils.contains('MACHINE_FEATURES', 'hisil-${HICHIPSET}', 'maxytec-bootlogo-${HICHIPSET} maxytec-libs-${HICHIPSET} maxytec-param-${HICHIPSET} maxytec-bootargs-${MACHINE} maxytec-fastboot-${MACHINE} maxytec-recovery-${MACHINE} maxytec-tntfs-${HICHIPSET}' , '', d)} \
     ${@bb.utils.contains('MACHINE_FEATURES', 'hisi-recovery', 'maxytec-recovery-${MACHINE}' , '', d)} \
     "
 
@@ -38,7 +38,6 @@ CMDLINE ?= "console=ttyAMA0,115200n8"
 KERNEL_MODULE_AUTOLOAD += "mali"
 
 PREFERRED_VERSION_linux-maxytec = "4.4.35"
-PREFERRED_VERSION_ffmpeg = "3.4.2"
 
 MTD_ROOTFS = "mmcblk0p20"
 MTD_KERNEL = "mmcblk0p19"
@@ -92,7 +91,7 @@ IMAGE_CMD_maxytecfastboot8gb_append = " \
     echo "Rename the unforce_${MACHINE}.txt to force_${MACHINE}.txt and move it to the root of your usb-stick" > ${DEPLOY_DIR_IMAGE}/${MACHINE}/${IMAGEDIR}/force_${MACHINE}_READ.ME; \
     echo "When you enter the recovery menu then it will force to install the image ${IMAGE_NAME}_usb.zip in the linux1 selection" >> ${DEPLOY_DIR_IMAGE}/${MACHINE}/${IMAGEDIR}/force_${MACHINE}_READ.ME; \
     cd ${DEPLOY_DIR_IMAGE}/${MACHINE}; \
-    zip -r ../${IMAGE_NAME}_mmc.zip *; \
+    zip -r ../${IMAGE_NAME}_multi.zip *; \
     rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
     rm -f ${DEPLOY_DIR_IMAGE}/.manifest; \
     cd ..; \

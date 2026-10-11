@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=6c2cd2089133de5067e13a6d4f75afef"
 DEPENDS = "python"
 RDEPENDS_${PN} = "\
     python-cheetah python-compression python-core python-crypt python-ctypes python-email python-html \
-    python-misc python-multiprocessing python-sabyenc python-sqlite3 python-shell python-subprocess python-yenc \
+    python-misc python-multiprocessing python-sabyenc python-sqlite3 python-shell python-subprocess \
     "
 RDEPENDS_${PN}-src = "python"
 
@@ -16,7 +16,7 @@ RRECOMMENDS_${PN} = "par2cmdline unrar"
 
 SRCREV = "8f21533e76d64a3bc26643394d5e98dc01ece63e"
 
-SRC_URI = "git://github.com/sabnzbd/sabnzbd.git \
+SRC_URI = "git://github.com/sabnzbd/sabnzbd.git;protocol=https \
     file://sabnzbd \
     file://sabnzbd.conf \
     file://init-functions \

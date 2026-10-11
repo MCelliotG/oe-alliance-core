@@ -11,9 +11,9 @@ DEPENDS = "tslib mpfr gmp"
 SRCREV = "${AUTOREV}"
 PV = "${IMAGE_VERSION}+gitr${SRCPV}"
 PKGV = "${IMAGE_VERSION}+gitr${GITPKGV}"
-PR = "r266"
+PR = "r305"
 
-SRC_URI="git://github.com/oe-alliance/3rdparty-plugins.git;protocol=git"
+SRC_URI="git://github.com/oe-alliance/3rdparty-plugins.git;protocol=https"
 
 EXTRA_OECONF = " \
     BUILD_SYS=${BUILD_SYS} \
@@ -31,15 +31,12 @@ S = "${WORKDIR}/git"
 # Info: enigma2-plugin-extensions-transmission_2.92-r2_all.ipk  have update depends dont merge to old oe-a versions
 
 THIRDPARTY_PLUGINS = " \
-    enigma2-plugin-extensions-atmolightd_0.7-pre22_all.ipk \
     enigma2-plugin-extensions-blackout-blind_1.3_all.ipk \
-    enigma2-plugin-extensions-boblight-enigma2_0.8r8_mips32el.ipk \
-    enigma2-plugin-extensions-camofs_17.14_all.ipk \
+    enigma2-plugin-extensions-camofs_17.35_all.ipk \
     enigma2-plugin-extensions-csfd_11-55-20160929_all.ipk \
     enigma2-plugin-extensions-customsubservices_0.1.3_all.ipk \
     enigma2-plugin-extensions-cyrussettings_1.0.0_all.ipk \
     enigma2-plugin-extensions-dvrproviderplayer_2.06_all.ipk \
-    enigma2-plugin-extensions-e2piconizer_1.08_20190708_all.ipk \
     enigma2-plugin-extensions-ehue_0.2-r0_all.ipk \
     enigma2-plugin-extensions-filesearchfs_3.0_all.ipk \
     enigma2-plugin-extensions-gmailreader-oe2.0_1.3_all.ipk \
@@ -49,56 +46,47 @@ THIRDPARTY_PLUGINS = " \
     ${@bb.utils.contains("TARGET_ARCH", "sh4", "enigma2-plugin-extensions-isettinge2-3.4.4-oe2.0-all-sh4.ipk" , "", d)} \
     ${@bb.utils.contains("TARGET_ARCH", "mipsel", "enigma2-plugin-extensions-isettinge2-3.4.4-oe2.0-all-mips.ipk" , "", d)} \
     ${@bb.utils.contains("TARGET_ARCH", "arm", "enigma2-plugin-extensions-isettinge2-3.4.4-oe2.0-all-arm.ipk" , "", d)} \
-    enigma2-plugin-extensions-livefootball_7.1_all.ipk \
-    enigma2-plugin-extensions-mediainfo_3.0.7_all.ipk \
+    enigma2-plugin-extensions-mediainfo_3.0.8_all.ipk \
     enigma2-plugin-extensions-mediaportal_all.ipk \
     enigma2-plugin-extensions-moviebrowser_3.7rc3_all.ipk \
     enigma2-plugin-extensions-mp3browser_2.0rc1_all.ipk \
     enigma2-plugin-extensions-mspfs_1.06_all.ipk \
-    enigma2-plugin-extensions-netspeedtest_1.0rc1_all.ipk \
+    enigma2-plugin-extensions-netspeedtest_2.1.3_all.ipk \
     ${@bb.utils.contains('MACHINE_BRAND', 'Vu+', '' , 'enigma2-plugin-extensions-openopera_1.0-r0_mips32el.ipk', d)} \
     ${@bb.utils.contains("TARGET_ARCH", "mipsel", "enigma2-plugin-extensions-opkg-tools_1.4_mips32el.ipk" , "", d)} \
     ${@bb.utils.contains("TARGET_ARCH", "arm", "enigma2-plugin-extensions-opkg-tools_1.4_cortexa15hf-neon-vfpv4.ipk" , "", d)} \
     enigma2-plugin-extensions-oscamstatusview_1.0rc1_all.ipk \
     enigma2-plugin-extensions-piconmanager_2.2-20150329-r0_all.ipk \
-    enigma2-plugin-extensions-piconsupdater_0.3.7_mips32el.ipk \
     enigma2-plugin-extensions-picturecenterfs_8.39_all.ipk \
     enigma2-plugin-extensions-planerfs_9.43_all.ipk \
     enigma2-plugin-extensions-pluginspanel_1.0_r01_all.ipk \
     enigma2-plugin-extensions-pluginupdater_0.1r2_all.ipk \
     enigma2-plugin-extensions-pravoslavietv_0.2_all.ipk \
     enigma2-plugin-extensions-pzyemail_0.8-20150614_all.ipk \
-    enigma2-plugin-extensions-screengrabber_2.5_all.ipk \
+    enigma2-plugin-extensions-screengrabber_2.6_all.ipk \
     enigma2-plugin-extensions-screensaver_5.7.1_all.ipk \
-    enigma2-plugin-extensions-serienrecorder_3.9.0_all.ipk \
+    enigma2-plugin-extensions-serienrecorder_4.4.7_all.ipk \
     enigma2-plugin-extensions-sherlock_5.01r1_mipsel.ipk \
-    enigma2-plugin-extensions-skyrecorder_1.9.7_all.ipk \
+    enigma2-plugin-extensions-skyrecorder_2.1.1d-py2_all.ipk \
     enigma2-plugin-extensions-songs-to_0.1_mips32el.ipk \
     enigma2-plugin-extensions-spinnerselector_2.3_all.ipk \
-    enigma2-plugin-extensions-sport1ticker_1.3_all.ipk \
-    enigma2-plugin-extensions-sundtekcontrolcenter_20180605-2_all.ipk \
-    enigma2-plugin-extensions-tectimetv_3.1_all.ipk \
+    enigma2-plugin-extensions-sundtekcontrolcenter_20210624-2_all.ipk \
     enigma2-plugin-extensions-thetvdb_0.7-20120607-r3_mips32el.ipk \
     enigma2-plugin-extensions-timfs_2.32_all.ipk \
     enigma2-plugin-extensions-theweather_5.0r05_all.ipk \
-    enigma2-plugin-extensions-tmbd_8.4_all.ipk \
-    enigma2-plugin-extensions-tmdb_0.7-r2_all.ipk \
-    enigma2-plugin-extensions-translator_1.1rc1_all.ipk \
+    enigma2-plugin-extensions-tmbd_8.6_all.ipk \
     enigma2-plugin-extensions-transmission_2.92-r2_all.ipk \
     enigma2-plugin-extensions-tsmedia_15.0_all.ipk \
-    enigma2-plugin-extensions-tstube_1.2_all.ipk \
-    enigma2-plugin-extensions-tvspielfilm_6.6rc4_all.ipk \
     enigma2-plugin-extensions-verkehrsinfo_1.2rc3_all.ipk \
-    enigma2-plugin-extensions-vcs_2.7_all.ipk \
+    enigma2-plugin-extensions-vcs_2.9_all.ipk \
     enigma2-plugin-extensions-vhannibalautosettings_1.1_mips32el.ipk \
     enigma2-plugin-extensions-vuplusforum_0.8rc2_all.ipk \
-    enigma2-plugin-extensions-webradiofs_19.16_all.ipk \
+    enigma2-plugin-extensions-webradiofs_19.51_all.ipk \
     enigma2-plugin-extensions-wikipedia_2.3rc3_all.ipk \
     enigma2-plugin-extensions-wwech_1.03_all.ipk \
     enigma2-plugin-extensions-xbmcwetter_1.4rc1_all.ipk \
+    enigma2-plugin-extensions-xcplugin-forever_2.2_all.ipk \
     enigma2-plugin-extensions-xcplugin-iptv-mod-lululla_6.7_all \
-    enigma2-plugin-picons-snp-full.220x132-190x102.light.on.transparent_2020-04-29--20-31-15_all.ipk \
-    enigma2-plugin-skins-OverlayHD_1.82_all.ipk \
     enigma2-plugin-systemplugins-bouquetsprotection_0.2-rc1_all.ipk \
     enigma2-plugin-systemplugins-channelselectionnavigator_1.5_mipsel.ipk \
     enigma2-plugin-systemplugins-extnumberzap_1.21_all.ipk \
@@ -134,12 +122,12 @@ THIRDPARTY_MACHINE_PLUGINS_et8000 = " \
     enigma2-plugin-systemplugins-autorebootET8000_1.3_mipsel.ipk \
      "
 
-do_install() {
-    [[ -e ${WORKDIR}/enigma2-plugin-extensions-mediaportal_all.ipk ]] && rm ${WORKDIR}/enigma2-plugin-extensions-mediaportal_all.ipk
-    wget --unlink -q  https://sourceforge.mirrorservice.org/e/project/e2/e2-mediaportal/enigma2-plugin-extensions-mediaportal_all.ipk -P ${WORKDIR}/ \
-    && cp --preserve=timestamps ${WORKDIR}/enigma2-plugin-extensions-mediaportal_all.ipk ${S}/ \
-    || true
-}
+#do_install() {
+#    [[ -e ${WORKDIR}/enigma2-plugin-extensions-mediaportal_all.ipk ]] && rm ${WORKDIR}/enigma2-plugin-extensions-mediaportal_all.ipk
+#    wget --unlink -q  https://downloads.sourceforge.net/project/e2-mediaportal/enigma2-plugin-extensions-mediaportal_all.ipk -P ${WORKDIR}/ \
+#    && cp --preserve=timestamps ${WORKDIR}/enigma2-plugin-extensions-mediaportal_all.ipk ${S}/ \
+#    || true
+#}
 
 python populate_packages_prepend () {
     pkg  = ""

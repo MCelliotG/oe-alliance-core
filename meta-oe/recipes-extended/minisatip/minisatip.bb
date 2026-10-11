@@ -7,12 +7,12 @@ DEPENDS = "libdvbcsa openssl"
 RDEPENDS_${PN} = "libdvbcsa openssl"
 
 SRC_URI = " \
-    git://github.com/catalinii/minisatip.git;protocol=http \
+    git://github.com/catalinii/minisatip.git;protocol=https \
     file://minisatip.init \
     "
 
-SRCREV = "de38af408d8f511611f078ccc1ea40b43e8bf06a"
-UPSTREAMVERSION = "3.1d"
+SRCREV = "${AUTOREV}"
+UPSTREAMVERSION = "1.0d"
 PV = "${UPSTREAMVERSION}+git${SRCPV}"
 
 S = "${WORKDIR}/git"

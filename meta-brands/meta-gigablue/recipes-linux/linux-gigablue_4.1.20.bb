@@ -6,14 +6,14 @@ MODULE = "linux-4.1.20"
 
 inherit kernel machine_kernel_pr
 
-MACHINE_KERNEL_PR_append = "r10"
+MACHINE_KERNEL_PR_append = "r11"
 
 SRC_URI[md5sum] = "6036c5d722071e72d5d66dbf7ee74992"
 SRC_URI[sha256sum] = "eff7eecf55dd75ecb44bd8b8fe16f588d19c1eac92125eaed2b6834348d12def"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI += "http://source.mynonpublic.com/gigablue/linux/gigablue-linux-${PV}-20180206.tar.gz \
+SRC_URI += "https://source.mynonpublic.com/gigablue/linux/gigablue-linux-${PV}-20180206.tar.gz \
     file://defconfig \
     file://gbfindkerneldevice.py \
     file://0002-linux_dvb-core.patch \
@@ -38,6 +38,7 @@ SRC_URI += "http://source.mynonpublic.com/gigablue/linux/gigablue-linux-${PV}-20
     file://0015-staging-media-mn88472-simplify-NULL-tests.patch \
     file://0016-mn88472-fix-typo.patch \
     file://0017-mn88472-finalize-driver.patch \
+    file://0018-Add-support-for-dvb-usb-stick-Hauppauge-WinTV-dualHD.patch \
     file://0001-dvb-usb-fix-a867.patch \
     file://0001-Support-TBS-USB-drivers-for-4.1-kernel.patch \
     file://0001-TBS-fixes-for-4.1-kernel.patch \

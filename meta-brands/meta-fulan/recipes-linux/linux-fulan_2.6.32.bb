@@ -32,7 +32,7 @@ STM_PATCH_STR = "0217"
 LINUX_VERSION = "2.6.32.71"
 SRCREV = "3ec500f4212f9e4b4d2537c8be5ea32ebf68c43b"
 
-SRC_URI = "git://github.com/Duckbox-Developers/linux-sh4-2.6.32.71.git;protocol=git;branch=stmicro \
+SRC_URI = "git://github.com/Duckbox-Developers/linux-sh4-2.6.32.71.git;protocol=https;branch=stmicro \
     file://linux-kbuild-generate-modules-builtin_stm24_${STM_PATCH_STR}.patch \
     file://linux-sh4-linuxdvb_stm24_${STM_PATCH_STR}.patch;patch=1 \
     file://linux-sh4-linuxdvb_stm24_${STM_PATCH_STR}_ca.patch;patch=1 \
@@ -91,6 +91,7 @@ PARALLEL_MAKEINST = ""
 EXTRA_OEMAKE_prepend = " ${PARALLEL_MAKE} "
 
 PACKAGES =+ "kernel-headers"
+INSANE_SKIP_${PN} += "installed-vs-shipped"
 FILES_kernel-headers = "${exec_prefix}/src/linux*"
 FILES_${KERNEL_PACKAGE_NAME}-dev += "${includedir}/linux"
 FILES_${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}"
@@ -126,7 +127,7 @@ do_shared_workdir_append() {
 }
 
 do_install_append() {
-    install -d ${D}${includedir}/linux	
+    install -d ${D}${includedir}/linux
     install -m 644 ${WORKDIR}/st-coprocessor.h ${D}${includedir}/linux
     oe_runmake headers_install INSTALL_HDR_PATH=${D}${exec_prefix}/src/linux-${KERNEL_VERSION} ARCH=$ARCH
     mv ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}

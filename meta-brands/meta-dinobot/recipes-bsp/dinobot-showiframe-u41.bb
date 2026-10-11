@@ -7,7 +7,7 @@ RDEPENDS_${PN} = "libjpeg-turbo"
 
 COMPATIBLE_MACHINE = "^(u41)$"
 
-SRCDATE = "20200710"
+SRCDATE = "20210607"
 
 PV = "${SRCDATE}"
 PR = "r0"
@@ -16,7 +16,7 @@ RPROVIDES_${PN}  = "showiframe"
 RREPLACES_${PN}  = "showiframe"
 RCONFLICTS_${PN} = "showiframe"
 
-SRC_URI = "http://source.mynonpublic.com/dinobot/${MACHINE}-showiframe-${SRCDATE}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/dinobot/${MACHINE}-showiframe-${SRCDATE}.tar.gz"
 
 S = "${WORKDIR}"
 
@@ -30,5 +30,5 @@ do_package_qa() {
 
 FILES_${PN}  = "${bindir}/showiframe"
 
-SRC_URI[md5sum] = "2c7ac2f71c10b4c5ea8b7ca67cf48300"
-SRC_URI[sha256sum] = "1fc1bde965d7b6c6f6a6b99442186d49e99436f27981f5ce75a9eef6caa48131"
+SRC_URI[md5sum] = "e170b035d74e3c33591c2dde5f0eea50"
+SRC_URI[sha256sum] = "732d4cd51701a7c371e534f47d04909f27d993f31f077a94578c0ce92b422b6b"

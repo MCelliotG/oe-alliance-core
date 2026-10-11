@@ -4,17 +4,17 @@ MAINTAINER = "kiddac"
 PRIORITY = "optional"
 require conf/license/license-gplv2.inc
 
-RDEPENDS_${PN} = "python-argparse python-image python-imaging python-multiprocessing python-requests"
+RDEPENDS_${PN} = "python-argparse python-image python-imaging python-lzma python-multiprocessing python-requests"
 
 SRCREV = "${AUTOREV}"
 
-PV = "2.25+git${SRCPV}"
-PKGV = "2.25+git${GITPKGV}"
-PR = "r1"
+PV = "3.58+git${SRCPV}"
+PKGV = "3.58+git${GITPKGV}"
+PR = "r0"
 
 inherit gitpkgv allarch
 
-SRC_URI = "git://github.com/kiddac/XStreamity.git;protocol=http"
+SRC_URI = "git://github.com/kiddac/XStreamity.git;protocol=https"
 
 S = "${WORKDIR}/git"
 

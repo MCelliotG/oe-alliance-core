@@ -48,7 +48,7 @@ GST_GOOD_RDEPS = "\
 
 GST_BAD_RDEPS = "\
 	gstreamer${GST_VERSION}-plugins-bad-autoconvert \
-	gstreamer${GST_VERSION}-plugins-bad-dashdemux \
+	gstreamer${GST_VERSION}-plugins-bad-dash \
 	gstreamer${GST_VERSION}-plugins-bad-mms \
 	gstreamer${GST_VERSION}-plugins-bad-mpegpsdemux \
 	gstreamer${GST_VERSION}-plugins-bad-mpegtsdemux \
@@ -86,8 +86,9 @@ RRECOMMENDS_${PN} = "\
 	${GST_UGLY_RDEPS} \
 	"
 
-SRC_URI = "git://github.com/openpli/servicemp3.git;branch=master"
+SRC_URI = "git://github.com/openpli/servicemp3.git;protocol=https;branch=master"
 SRCREV = "${AUTOREV}"
+SRCREV_openeight = "c7750c5ab393341f5a65094ceac90fbb6afd12e6"
 
 S = "${WORKDIR}/git"
 

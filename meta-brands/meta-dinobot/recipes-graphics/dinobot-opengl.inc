@@ -4,12 +4,12 @@ PRIORITY = "required"
 LICENSE = "CLOSED"
 PACKAGE_ARCH := "${MACHINE_ARCH}"
 
-PR = "r4-${SRCDATE}"
+PR = "r5-${SRCDATE}"
 
 PROVIDES = "virtual/libgles1 virtual/libgles2 virtual/egl"
 RPROVIDES_${PN} = "virtual/libgles1 virtual/libgles2 virtual/egl libEGL.so libGLESv2.so libmali.so"
 
-SRC_URI = "http://source.mynonpublic.com/dinobot/${SOC_FAMILY}-opengl-armhf-${SRCDATE}.zip \
+SRC_URI = "https://source.mynonpublic.com/dinobot/${SOC_FAMILY}-opengl-armhf-${SRCDATE}.zip \
  file://libm-2.27.so.zip \
 "
 
@@ -54,7 +54,6 @@ do_install() {
     done
     install -d ${D}/lib
     install -m 0755 ${WORKDIR}/libm-2.27.so ${D}/lib
-    ln -s /lib/libm-2.27.so  ${D}/lib/libm.so
 }
 
 FILES_${PN} = "/usr/lib/* /lib"

@@ -28,7 +28,6 @@ EXTRA_OECONF = " \
     --with-po \
     --with-boxtype=${MACHINE} \
     --with-distro=${DISTRO} \
-    --with-gstversion=${GST_VERSION} \
     ${@bb.utils.contains('MACHINE_FEATURES', 'tpm', '--with-tpm' , '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'pli', '--with-pli' , '', d)} \
 "
@@ -71,6 +70,7 @@ DEPENDS = "enigma2 \
     python-google-api-client \
     python-httplib2 \
     python-youtube-dl \
+    python-six-native \
     dvdbackup \
     libav \
     libshowiframe \

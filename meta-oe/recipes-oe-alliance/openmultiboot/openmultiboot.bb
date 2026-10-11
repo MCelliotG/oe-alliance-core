@@ -7,18 +7,30 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 inherit gitpkgv
 
 SRCREV = "${AUTOREV}"
-PV = "1.0+git${SRCPV}"
-PKGV = "1.0+git${GITPKGV}"
+PV = "1.3+git${SRCPV}"
+PKGV = "1.3+git${GITPKGV}"
 PR = "r0"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "freetype"
+DEPENDS = "freetype json-c"
 
-SRC_URI = "git://github.com/oe-alliance/openmultiboot.git;protocol=git"
+SRC_URI = "git://github.com/oe-alliance/openmultiboot.git;protocol=https;branch=main"
 
 inherit autotools-brokensep pkgconfig
 
 S = "${WORKDIR}/git"
+
+#temp workaround for dreambox add fake mtd2 for kernel
+MTD_KERNEL_dm500hd = "mtd2"
+MTD_KERNEL_dm500hdv2 = "mtd2"
+MTD_KERNEL_dm520 = "mtd2"
+MTD_KERNEL_dm800se = "mtd2"
+MTD_KERNEL_dm800sev2 = "mtd2"
+MTD_KERNEL_dm820 = "mtd2"
+MTD_KERNEL_dm7020hd = "mtd2"
+MTD_KERNEL_dm7020hdv2 = "mtd2"
+MTD_KERNEL_dm7080 = "mtd2"
+MTD_KERNEL_dm8000 = "mtd2"
 
 EXTRA_OEMAKE = " \
     'CFLAGS=${CFLAGS} \

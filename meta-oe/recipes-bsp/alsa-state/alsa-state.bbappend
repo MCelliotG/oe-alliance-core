@@ -1,10 +1,11 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".6"
+PR_append = ".7"
 PACKAGE_ARCH := "${MACHINE_ARCH}"
 
 EXTRA_ALSA ?= "empty"
 EXTRA_ALSA_vuduo4k = "vuplus"
+EXTRA_ALSA_vuduo4kse = "vuplus"
 EXTRA_ALSA_vusolo4k = "vuplus"
 EXTRA_ALSA_vuultimo4k = "vuplus"
 EXTRA_ALSA_vuuno4k = "vuplus"
@@ -22,5 +23,11 @@ EXTRA_ALSA_gbmv200 = "mv200"
 EXTRA_ALSA_sf8008 = "mv200"
 EXTRA_ALSA_sf8008m = "mv200"
 EXTRA_ALSA_ustym4kpro = "mv200"
+EXTRA_ALSA_dual = "mv200"
+EXTRA_ALSA_sx988 = "mv200"
+EXTRA_ALSA_sx88v2 = "mv200"
+EXTRA_ALSA_ustym4kottpremium = "mv200"
+EXTRA_ALSA_og2ott4k = "mv200"
+EXTRA_ALSA_sfx6008 = "mv200"
 
 require alsa-state-${EXTRA_ALSA}.inc

@@ -4,7 +4,7 @@ SECTION = "kernel"
 
 MODULE = "linux-4.1.45"
 
-MACHINE_KERNEL_PR_append = "oea4.2-r5"
+MACHINE_KERNEL_PR_append = "oea4.2-r6"
 
 inherit kernel machine_kernel_pr
 
@@ -15,7 +15,7 @@ SRC_URI[sha256sum] = "18ecc79522f6b975c96cca7975eb31db93d2e8cfea6755451bba0a1a28
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KSRC_VER}.tar.bz2 \
+SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KSRC_VER}.tar.bz2 \
     file://defconfig \
     file://linux_dvb_adapter.patch \
     file://linux_dvb-core.patch \
@@ -39,6 +39,7 @@ SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KSRC_VER}.tar.b
     file://0015-staging-media-mn88472-simplify-NULL-tests.patch \
     file://0016-mn88472-fix-typo.patch \
     file://0017-mn88472-finalize-driver.patch \
+    file://0018-Add-support-for-dvb-usb-stick-Hauppauge-WinTV-dualHD.patch \
     file://0001-dvb-usb-fix-a867.patch \
     file://kernel-add-support-for-gcc6.patch \
     file://kernel-add-support-for-gcc7.patch \
@@ -53,6 +54,8 @@ SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KSRC_VER}.tar.b
     file://0002-log2-give-up-on-gcc-constant-optimizations.patch \
     file://0003-uaccess-dont-mark-register-as-const.patch \
     file://move-default-dialect-to-SMB3.patch \
+    file://v3-1-2-em28xx-Ignore-errors-while-reading-from-eeprom.patch \
+    file://v3-2-2-em28xx-add-support-for-new-of-Terratec-H6.patch \
     "
 
 S = "${WORKDIR}/linux"

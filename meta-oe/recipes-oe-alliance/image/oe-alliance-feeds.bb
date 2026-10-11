@@ -9,7 +9,7 @@ ALLOW_EMPTY_${PN} = "1"
 PACKAGES = "${PN}"
 
 PV = "${IMAGE_VERSION}"
-PR = "r4"
+PR = "r9"
 
 DEPENDS = "enigma2-plugin-drivers-usbserial enigma2-plugin-systemplugins-hrtunerproxy enigma2-plugin-systemplugins-radiotimesemulator"
 
@@ -17,7 +17,6 @@ RDEPENDS_${PN} = " \
     bootlogos-enigma2-meta \
     dvb-usb-drivers-meta \
     network-usb-drivers-meta \
-    channelsettings-enigma2-meta \
     picons-enigma2-meta \
     packagegroup-openplugins \
     meta-enigma2-dvdburn \
@@ -27,6 +26,7 @@ RDEPENDS_${PN} = " \
     enigma2-plugin-drivers-usbserial \
     enigma2-plugin-extensions-tuxcom \
     enigma2-plugin-drivers-iptables \
+    enigma2-plugin-extensions-enigmalight \
     enigma2-plugin-extensions-mediatomb \
     enigma2-plugin-extensions-dreamplex \
     enigma2-plugin-extensions-et-portal \
@@ -38,12 +38,13 @@ RDEPENDS_${PN} = " \
     enigma2-plugin-extensions-e2iplayer \
     enigma2-plugin-extensions-e2iplayer-deps \
     enigma2-plugin-extensions-e2m3u2bouquet \
-    enigma2-plugin-extensions-jedimakerxtream \
+    enigma2-plugin-extensions-e2piconizer \
     enigma2-plugin-extensions-xmodem \
     enigma2-plugin-extensions-xstreamity \
     enigma2-plugin-systemplugins-hrtunerproxy \
-    enigma2-plugin-systemplugins-joynescan \
+    enigma2-plugin-systemplugins-misplslcnscan \
     enigma2-plugin-systemplugins-radiotimesemulator \
+    enigma2-plugin-systemplugins-terrestrialscan \
     oe-alliance-branding-remote \
     exteplayer3 \
     enigma2-plugin-systemplugins-serviceapp \
@@ -61,6 +62,7 @@ RDEPENDS_${PN} = " \
     ${@bb.utils.contains("MACHINE_FEATURES", "vustalker", "enigma2-plugin-extensions-stalkerclient-${MACHINE}", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "wifi-direct", "wds", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "dvd", "bdremux replex mjpegtools dvdauthor dvd+rw-tools cdrkit cdfs cdtextinfo enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-dvdburn enigma2-plugin-extensions-dvdplayer ${GST_BASE_DVD}", "", d)} \
+    ${@bb.utils.contains("MACHINE_FEATURES", "openhbbtv", "enigma2-plugin-extensions-openhbbtvbrowser", "", d)} \
     autofs \
     autossh \
     ${@bb.utils.contains("DISTRO_FEATURES", "directfb", "avahi-ui", "", d)} \
@@ -87,7 +89,7 @@ RDEPENDS_${PN} = " \
     joe \
     lighttpd \
     livestreamersrv \
-    streamlink \
+    satpi \
     llmnr-query \
     mc \
     mergerfs \
@@ -111,6 +113,7 @@ RDEPENDS_${PN} = " \
     p7zip \
     packagegroup-base-samba \
     parted \
+    perl \
     pngquant \
     pcsc-lite \
     pcsc-tools \
@@ -131,6 +134,7 @@ RDEPENDS_${PN} = " \
     python-mechanize \
     python-netifaces \
     python-pexpect \
+    python-psutil \
     python-pyasn1-modules \
     python-requests \
     python-service-identity \
@@ -148,6 +152,8 @@ RDEPENDS_${PN} = " \
     smartmontools \
     smbnetfs \
     sshpass \
+    streamlink-27 \
+    streamlinksrv \
     streamproxy \
     strongswan \
     tcpdump \
@@ -156,7 +162,7 @@ RDEPENDS_${PN} = " \
     ushare \
     vim \
     wakelan \
-    ${@bb.utils.contains_any("MACHINE", "cube spark spark7162 dm900 dm920 vuduo2 vusolose vusolo2 vuzero vuuno vuduo vuultimo vusolo inihde2 jj7362 odinm9 et9x00 et6x00 et5x00 dags7356 dags7335 inihdx inihde inihdp vg5000 vg2000 vg1000 ew7356 ew7358 ew7362 ixussone ixusszero blackbox7405 dm520 dm8000 dm7020hd dm7020hdv2 dm800sev2 dm500hdv2 dm7080 dm820 yh7362 yh62tc gb800solo gb7325 ch62lc", "" , "wireguard-module wireguard-tools", d)} \
+    ${@bb.utils.contains_any("MACHINE", "cube spark spark7162 dm900 dm920 vuduo2 vusolose vusolo2 vuzero vuuno vuduo vuultimo vusolo inihde2 jj7362 odinm9 et9x00 et6x00 et5x00 dags7356 dags7335 inihdx inihde inihdp vg5000 vg2000 vg1000 ew7356 ew7358 ew7362 ixussone ixusszero blackbox7405 dm520 dm8000 dm7020hd dm7020hdv2 dm800sev2 dm500hdv2 dm7080 dm820 yh7362 yh62tc gb800solo gb7325 ch62lc", "" , "wireguard-tools", d)} \
     wireless-tools \
     zeroconf \
     "

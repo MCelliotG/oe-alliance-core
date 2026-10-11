@@ -39,7 +39,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
     gptfdisk \
 "
 
-MACHINE_FEATURES += "switchoff 7segment hdmicec skins1080 emmc mmc blindscan-dvbs kodi18 alsa hbbtv-browser-webkit qtstalker qtnetflix"
+MACHINE_FEATURES += "switchoff 7segment hdmicec skins1080 emmc mmc blindscan-dvbs kodi18 alsa hbbtv-browser-webkit qtstalker qtnetflix hisichromium"
 
 IMAGE_CLASSES  += "amiko-emmc_image"
 IMAGE_FSTYPES += "amikoemmc"
@@ -49,7 +49,6 @@ TARGET_ARCH = "arm"
 DEFAULTTUNE = "cortexa15hf-neon-vfpv4"
 
 PREFERRED_VERSION_linux-amiko = "4.4.35"
-PREFERRED_VERSION_ffmpeg = "3.4.2"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-amiko"
 PREFERRED_PROVIDER_virtual/egl = "amiko-opengl-${MACHINE}" 
@@ -101,6 +100,7 @@ IMAGE_CMD_amikoemmc_append = "\
     rm -f -f ${DEPLOY_DIR_IMAGE}/*.json; \
     rm -Rf ${DEPLOY_DIR_IMAGE}/usb_update.bin; \
     rm -Rf ${IMAGEDIR}; \
+    rm -Rf ${IMGDEPLOYDIR}/userdata; \
     "
 
 # Add "MACHINEBUILD" override for recipes

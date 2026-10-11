@@ -6,7 +6,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 COMPATIBLE_MACHINE = "^(u42)$"
 
-SRCDATE = "20200710"
+SRCDATE = "20210607"
 
 PV = "${SRCDATE}"
 PR = "r0"
@@ -15,7 +15,7 @@ RPROVIDES_${PN}  = "aio-grab"
 RREPLACES_${PN}  = "aio-grab"
 RCONFLICTS_${PN} = "aio-grab"
 
-SRC_URI = "http://source.mynonpublic.com/dinobot/${MACHINE}-grab-${SRCDATE}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/dinobot/${MACHINE}-grab-${SRCDATE}.tar.gz"
 
 S = "${WORKDIR}"
 
@@ -29,5 +29,5 @@ do_package_qa() {
 
 FILES_${PN}  = "${bindir}/grab"
 
-SRC_URI[md5sum] = "e00f74d499eabe0e9c08049d341550e0"
-SRC_URI[sha256sum] = "b0eb2c6522971d295982315fe0999fdd1055a17a991a7783308fd39d19062442"
+SRC_URI[md5sum] = "86ef2f5f6ce55d9b1d73571a355123ab"
+SRC_URI[sha256sum] = "deeb759bf1f615f864a9833df39655f4fa434dd40c5cc6b105b6861cb34edefe"

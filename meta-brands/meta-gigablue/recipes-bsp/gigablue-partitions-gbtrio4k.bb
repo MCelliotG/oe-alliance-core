@@ -7,12 +7,12 @@ PACKAGE_ARCH = "${MACHINEBUILD}"
 
 inherit deploy
 
-SRCDATE = "20200624"
+SRCDATE = "20221111"
 PR = "${SRCDATE}"
 
 S = "${WORKDIR}/patitions"
 
-SRC_URI = "http://source.mynonpublic.com/gigablue/mv200/${MACHINEBUILD}-partitions-${SRCDATE}.zip \
+SRC_URI = "https://source.mynonpublic.com/gigablue/mv200/${MACHINEBUILD}-partitions-${SRCDATE}.zip \
   file://flash-apploader \
 "
 
@@ -50,7 +50,7 @@ do_deploy() {
 
 addtask deploy before do_build after do_install
 
-SRC_URI[md5sum] = "64fd730eecd9c46f1319754ff7398ab7"
-SRC_URI[sha256sum] = "65b47d5ec6857287735285631e3f233eacf69177206f368521425d378a6c033f"
+SRC_URI[md5sum] = "cec5319a5a0a038045315f23d59fb84a"
+SRC_URI[sha256sum] = "aba4562be0239bedbaddc8728100a224d3199b8a5a8cf14f8da365778da46093"
 
 INSANE_SKIP_${PN} += "already-stripped"

@@ -1,4 +1,4 @@
-PR .= ".3"
+PR .= ".5"
 SRC_URI += " \
             file://mount_single_uuid.patch \
             file://use_ipv6_when_ipv4_unroutable.patch \
@@ -10,6 +10,7 @@ SRC_URI += " \
             file://0001-Prevent-telnet-connections-from-the-internet-to-the-.patch \
             file://0002-Extended-network-interfaces-support.patch \
             file://0003-Revert-ip-fix-ip-oneline-a.patch \
+            file://0004-libbb-make-unicode-printable.patch \
             "
 
 # we do not really depend on mtd-utils, but as mtd-utils replaces 
@@ -40,6 +41,10 @@ FILES_${PN}-telnetd = "${sysconfdir}/init.d/telnetd.${BPN}"
 RDEPENDS_${PN}-telnetd += "${PN}"
 PROVIDES += "virtual/telnetd"
 RPROVIDES_${PN}-telnetd += "virtual/telnetd"
+
+do_configure_prepend_sh4 () {
+	sed -i 's/^# CONFIG_FEATURE_SWAPON_PRI is not set/CONFIG_FEATURE_SWAPON_PRI=y/g' ${WORKDIR}/defconfig
+}
 
 do_install_append() {
     if grep "CONFIG_FEATURE_TELNETD_STANDALONE=y" ${B}/.config; then

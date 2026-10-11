@@ -2,7 +2,7 @@ SUMMARY = "Filemanager MoviePlayer Extentions"
 MAINTAINER = "Coolman, Betonme & Swiss-MAD"
 SECTION = "extra"
 PRIORITY = "optional"
-RDEPENDS_${PN} = "gstreamer1.0-plugins-good-flv gstreamer1.0-plugins-bad-rtmp python-json python-html python-requests python-mutagen librtmp1"
+RDEPENDS_${PN} = "gstreamer1.0-plugins-good-flv gstreamer1.0-plugins-bad-rtmp python-json python-html python-requests python-mutagen rtmpdump"
 
 require conf/license/license-gplv2.inc
 
@@ -11,7 +11,7 @@ SRCREV = "${AUTOREV}"
 PV = "4.0.+git${SRCPV}"
 PKGV = "4.0.+git${GITPKGV}"
 
-SRC_URI="git://github.com/betonme/e2openplugin-EnhancedMovieCenter.git;branch=py2"
+SRC_URI="git://github.com/betonme/e2openplugin-EnhancedMovieCenter.git;branch=py2;protocol=https"
 
 S = "${WORKDIR}/git"
 
@@ -25,7 +25,7 @@ FILES_${PN}-src = "\
 	"
 FILES_${PN}-po = "${libdir}/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/locale/*/*/*.po"
 
-inherit autotools-brokensep
+inherit autotools-brokensep pythonnative
 
 EXTRA_OECONF = "\
     BUILD_SYS=${BUILD_SYS} \

@@ -16,7 +16,7 @@ UBI_VOLNAME = "rootfs"
 MKUBIFS_ARGS = "-m 2048 -e 126976 -c 4096 -F"
 UBINIZE_ARGS = "-m 2048 -p 128KiB"
 
-IMAGE_CMD_ubi_prepend = " \
+IMAGE_CMD_ubifs_prepend = " \
     rm -rf ${IMAGE_ROOTFS}/boot/*; \
     rm -rf ${IMAGE_ROOTFS}/tmp/*; \
     "
@@ -47,3 +47,7 @@ IMAGE_CMD_ubi_append = "\
     "
 
 require conf/machine/include/tune-mips32.inc
+
+PREFERRED_PROVIDER_virtual/egl = "v3d-libgles-${MACHINE}" 
+PREFERRED_PROVIDER_virtual/libgles2 = "v3d-libgles-${MACHINE}"
+

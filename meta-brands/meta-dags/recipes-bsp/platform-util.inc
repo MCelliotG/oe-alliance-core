@@ -8,12 +8,10 @@ require conf/license/license-close.inc
 PR="${SRCDATE}"
 
 SRC_URI = " \
-    http://en3homeftp.net/pub/down/platform-util-${MACHINE}.tar.gz \
+    https://source.mynonpublic.com/dags/platform-util-${MACHINE}.zip \
     file://${INITSCRIPT_NAME}.sysvinit \
 "
 
-#S="${WORKDIR}/platform-util-${MACHINE}"
-S="${WORKDIR}"
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${S}/* ${D}${bindir}
@@ -22,6 +20,8 @@ do_install() {
 }
 
 do_package_qa() {
+}
+do_populate_sysroot() {
 }
 
 FILES_${PN}="/"
